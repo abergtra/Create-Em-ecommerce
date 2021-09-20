@@ -1,5 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+//import React
+import React from 'react';
+
+//import back end functionality from react and apollo
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+
+
+
+
 
 function App() {
   return (
