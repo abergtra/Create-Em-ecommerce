@@ -23,4 +23,4 @@ function CategoryMenu({ setCategory }) {
     );
 }
 
-export default CategoryMenu
+export default CategoryMenu;
