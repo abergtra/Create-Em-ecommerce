@@ -94,6 +94,21 @@ header img {
   height: 150px;
 }
 
+@counter-style cheese-emoji {
+  symbols: "🧀";
+  system: cyclic;
+  suffix: " ";
+}
+
+header nav ul {
+  list-style-type: cheese-emoji;
+  font-size: x-large;
+}
+
+header nav ul li {
+  padding-right: 2rem;
+}
+
 button {
   font-size: 1rem;
   text-decoration: none;
@@ -213,5 +228,8 @@ input:focus {
 @media screen and (max-width: 768px) {
   .card {
     width: 100%;
+  }
+  header {
+    justify-content: center;
   }
 }
