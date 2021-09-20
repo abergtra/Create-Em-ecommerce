@@ -18,7 +18,7 @@ import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Nav from './components/Nav';
-import OrderHistory from './pages/OrderHistory';
+import BoardHistory from './pages/BoardHistory';
 
 //create link for graphql
 const httpLink = createHttpLink({
@@ -52,7 +52,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
-            <Route exact path="/orderHistory" component={OrderHistory} />
+            <Route exact path="/boardHistory" component={BoardHistory} />
             <Route exact path="/products/:id" component={Detail} />
             <Route component={NoMatch} />
           </Switch>
