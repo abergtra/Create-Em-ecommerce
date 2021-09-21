@@ -20,4 +20,3 @@ Create-em is a charcuterie board building website. The application is able to ad
 - Asher Bergtraun
 - Newton Armstrong
 - Thomas Walker
-
