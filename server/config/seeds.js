@@ -40,16 +40,16 @@ db.once('open', async () => {
         image: 'vegetarian-large.jpg',
         category: categories[2]._id,
         price: 13.99,
-        
-      },
-      {
+    
+    },
+    {
             name: 'Small Classic Board',
             description: 'Classic board with meat, cheese, and various fruit.',
             image: 'classic-small.jpg',
-            category: categories[3]._id,
+            category: categories[0]._id,
             price: 15.00,
     
-      },
+    },
    
   ]);
 
