@@ -10,7 +10,7 @@ db.once('open', async () => {
   const categories = await Category.insertMany([
     { name: 'Classic' },
     { name: 'Kosher' },
-    { name: 'Vegetarian' }
+    { name: 'Vegetarian'}
   ]);
 
   console.log('categories seeded');
@@ -22,7 +22,7 @@ db.once('open', async () => {
       name: 'Classic Large Board',
       description:
         'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-      image: 'cookie-tin.jpg',
+      image: 'classic-large3.jpg',
       category: categories[0]._id,
       price: 15.99,
       
@@ -31,7 +31,7 @@ db.once('open', async () => {
       name: 'Kosher Large Board',
       description:
         'Praesent sed lacinia mauris. Nulla congue nibh magna, at feugiat nunc scelerisque quis. Donec iaculis rutrum vulputate. Suspendisse lectus sem, vulputate ac lectus sed, placerat consequat dui.',
-      image: 'canned-coffee.jpg',
+      image: 'kosher-large1.jpg',
       category: categories[1]._id,
       price: 16.99,
       
@@ -39,7 +39,7 @@ db.once('open', async () => {
         name: 'Vegetarian Large Board',
         description:
           'Praesent sed lacinia mauris. Nulla congue nibh magna, at feugiat nunc scelerisque quis. Donec iaculis rutrum vulputate. Suspendisse lectus sem, vulputate ac lectus sed, placerat consequat dui.',
-        image: 'canned-coffee.jpg',
+        image: 'vegetarian-large.jpg',
         category: categories[2]._id,
         price: 13.99,
         
@@ -52,9 +52,8 @@ db.once('open', async () => {
   await User.deleteMany();
 
   await User.create({
-    firstName: 'Pamela',
-    lastName: 'Washington',
-    email: 'pamela@testmail.com',
+    username: "vegetarian-man",
+    email: 'eatveggies99@gmail.com',
     password: 'password12345',
     orders: [
       {
@@ -64,9 +63,8 @@ db.once('open', async () => {
   });
 
   await User.create({
-    firstName: 'Elijah',
-    lastName: 'Holt',
-    email: 'eholt@testmail.com',
+    username: 'classic-man',
+    email: 'eatanything@gmail.com',
     password: 'password12345'
   });
 
