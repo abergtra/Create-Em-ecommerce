@@ -1,4 +1,5 @@
 const db = require('./connection');
+
 const {User, Product, Category } = require('../models');
 
 const db = require('./connection');
@@ -35,7 +36,8 @@ db.once('open', async () => {
       category: categories[1]._id,
       price: 16.99,
       
-    },{
+    },
+    {
         name: 'Vegetarian Large Board',
         description:
           'Praesent sed lacinia mauris. Nulla congue nibh magna, at feugiat nunc scelerisque quis. Donec iaculis rutrum vulputate. Suspendisse lectus sem, vulputate ac lectus sed, placerat consequat dui.',
@@ -43,6 +45,14 @@ db.once('open', async () => {
         category: categories[2]._id,
         price: 13.99,
         
+      },
+      {
+            name: 'Small Classic Board',
+            description: 'Classic board with meat, cheese, and various fruit.',
+            image: 'classic-small.jpg',
+            category: categories[3]._id,
+            price: 15.00,
+    
       },
    
   ]);
