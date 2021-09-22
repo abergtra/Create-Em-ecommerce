@@ -21,7 +21,7 @@ const typeDefs = gql`
         category: Category 
         description: String
         image:  String 
-        quantity: 
+        
         price: 
 
 
