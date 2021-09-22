@@ -34,7 +34,6 @@ function ProductList({ currentCategory }) {
                 image={product.image}
                 name={product.name}
                 price={product.price}
-                quantity={product.quantity}
               />
             ))}
           </div>
