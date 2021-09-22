@@ -112,19 +112,34 @@ header nav ul li {
 button {
   font-size: 1rem;
   text-decoration: none;
-  padding: 0.25rem 1rem;
-  border-radius: .5rem;
+  padding: 0.5rem 1rem;
+  box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.2),
+       inset 0px -5px 0px 0px rgba(0,0,0,0.3),
+    inset 0px 2px 0px 0px rgba(255,255,255,0.5);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
   border: none;
-  outline: none;
+  overflow: hidden;
   cursor: pointer;
   margin: 0 1px;
-  background-color: var(--secondary);
+  background: url(http://1.bp.blogspot.com/-tXavBQFjNFQ/VMSaYaq7PtI/AAAAAAAADSc/awMPRe3yu5A/s1600/wood_pattern.png);
 }
 
-button:hover {
-  background-color: var(--tertiary);
-}
-
+button:active {
+  box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.2),
+        inset 0px -2px 0px 0px rgba(0,0,0,0.3),
+     inset 0px 2px 0px 0px rgba(255,255,255,0.5);
+  top: 3px;
+ }
+ button div {
+  padding: 10px 20px 12px 20px;
+  color: rgba(0,0,0,0.7);
+  text-shadow: 1px 1px 0px rgba(255,255,255,0.4);
+ }
+ button:active div {
+  padding-bottom: 9px;
+ }
 button[disabled] {
   cursor: default;
   opacity: .8;
