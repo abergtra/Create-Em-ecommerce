@@ -7,10 +7,6 @@ export const QUERY_PRODUCTS = gql`
       name
       description
       price
-<<<<<<< HEAD
-      quantity
-=======
->>>>>>> feature/newtake
       image
       category {
         _id
@@ -26,11 +22,7 @@ export const QUERY_ALL_PRODUCTS = gql`
       name
       description
       price
-<<<<<<< HEAD
-      quantity
-=======
       image
->>>>>>> feature/newtake
       category {
         name
       }
@@ -62,10 +54,6 @@ export const QUERY_USER = gql`
           name
           description
           price
-<<<<<<< HEAD
-          quantity
-=======
->>>>>>> feature/newtake
           image
         }
       }

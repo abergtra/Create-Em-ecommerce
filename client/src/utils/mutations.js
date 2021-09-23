@@ -20,10 +20,6 @@ export const ADD_ORDER = gql`
         name
         description
         price
-<<<<<<< HEAD
-        quantity
-=======
->>>>>>> feature/newtake
         category {
           name
         }
