@@ -10,6 +10,10 @@ function ProductItem(item) {
       name,
       _id,
       price,
+<<<<<<< HEAD
+=======
+      quantity
+>>>>>>> feature/newtake
     } = item;
   
     return (
@@ -22,7 +26,11 @@ function ProductItem(item) {
           <p>{name}</p>
         </Link>
         <div>
+<<<<<<< HEAD
           
+=======
+          <div>{quantity} {pluralize("item", quantity)} in stock</div>
+>>>>>>> feature/newtake
           <span>${price}</span>
         </div>
         <button>Add to cart</button>

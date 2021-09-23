@@ -34,6 +34,10 @@ function ProductList({ currentCategory }) {
                 image={product.image}
                 name={product.name}
                 price={product.price}
+<<<<<<< HEAD
+=======
+                quantity={product.quantity}
+>>>>>>> feature/newtake
               />
             ))}
           </div>
