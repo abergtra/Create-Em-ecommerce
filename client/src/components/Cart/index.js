@@ -1,36 +1,44 @@
-import React from 'react';
-import CartItem from '../CartItem';
-import Auth from '../../utils/auth';
-import './style.css';
+import React, { useEffect } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import { useLazyQuery } from '@apollo/react-hooks';
+import { QUERY_CHECKOUT } from "../../utils/queries"
+import { idbPromise } from "../../utils/helpers"
+import CartItem from "../CartItem";
+import Auth from "../../utils/auth";
+import { useStoreContext } from "../../utils/GlobalState";
+import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../../utils/actions";
+import "./style.css";
 
-// import for toggle action 
-import { useStoreContext } from '../../utils/GlobalState';
-import { TOGGLE_CART } from '../../utils/actions';
-
-import { useEffect } from "react";
-import { ADD_MULTIPLE_TO_CART } from "../../utils/actions";
-import { idbPromise } from "../../utils/helpers";
-
+const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Cart = () => {
-const [state, dispatch] = useStoreContext();
-//22.3.5 shopping cart persistence 
-useEffect(() => {
+  const [state, dispatch] = useStoreContext();
+  const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
+
+  useEffect(() => {
+    if (data) {
+      stripePromise.then((res) => {
+        res.redirectToCheckout({ sessionId: data.checkout.session })
+      })
+    }
+  }, [data]);
+
+  useEffect(() => {
     async function getCart() {
       const cart = await idbPromise('cart', 'get');
       dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
     };
-  
+
     if (!state.cart.length) {
       getCart();
     }
   }, [state.cart.length, dispatch]);
 
-function toggleCart() {
-  dispatch({ type: TOGGLE_CART });
-}
-//update cart balance to state.cart 22.2.6 
-function calculateTotal() {
+  function toggleCart() {
+    dispatch({ type: TOGGLE_CART });
+  }
+
+  function calculateTotal() {
     let sum = 0;
     state.cart.forEach(item => {
       sum += item.price * item.purchaseQuantity;
@@ -38,7 +46,21 @@ function calculateTotal() {
     return sum.toFixed(2);
   }
 
-if (!state.cartOpen) {
+  function submitCheckout() {
+    const productIds = [];
+
+    state.cart.forEach((item) => {
+      for (let i = 0; i < item.purchaseQuantity; i++) {
+        productIds.push(item._id);
+      }
+    });
+
+    getCheckout({
+      variables: { products: productIds }
+    });
+  }
+
+  if (!state.cartOpen) {
     return (
       <div className="cart-closed" onClick={toggleCart}>
         <span
@@ -48,37 +70,38 @@ if (!state.cartOpen) {
     );
   }
 
-  console.log(state)
   return (
     <div className="cart">
-  <div className="close" onClick={toggleCart}>[close]</div>
-  <h2>Shopping Cart</h2>
-  {state.cart.length ? (
-    <div>
-      {state.cart.map(item => (
-        <CartItem key={item._id} item={item} />
-      ))}
-      <div className="flex-row space-between">
-        <strong>Total: ${calculateTotal()}</strong>
-        {
-          Auth.loggedIn() ?
-            <button>
-              Checkout
-            </button>
-            :
-            <span>(log in to check out)</span>
-        }
-      </div>
+      <div className="close" onClick={toggleCart}>[close]</div>
+      <h2>Shopping Cart</h2>
+      {state.cart.length ? (
+        <div>
+          {state.cart.map(item => (
+            <CartItem key={item._id} item={item} />
+          ))}
+
+          <div className="flex-row space-between">
+            <strong>Total: ${calculateTotal()}</strong>
+
+            {
+              Auth.loggedIn() ?
+                <button onClick={submitCheckout}>
+                  Checkout
+              </button>
+                :
+                <span>(log in to check out)</span>
+            }
+          </div>
+        </div>
+      ) : (
+          <h3>
+            <span role="img" aria-label="shocked">
+              😱
+          </span>
+          You haven't added anything to your cart yet!
+          </h3>
+        )}
     </div>
-  ) : (
-    <h3>
-      <span role="img" aria-label="shocked">
-        😱
-      </span>
-      You haven't added anything to your cart yet!
-    </h3>
-  )}
-</div>
   );
 };
 
