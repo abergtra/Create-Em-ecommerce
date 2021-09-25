@@ -1,9 +1,10 @@
 :root {
-  --primary: #232F3E;
-  --secondary: #F3A847;
-  --tertiary: #B12704;
-  --light: #fafafa;
-  --dark: #272f32;
+  --primary: #f0e6cf;
+  --secondary: #fffd48;
+  --tertiary: #ac154e;
+  --light: #615a4b;
+  --dark: #2f2824;
+  --background: #e7d47b;
   --error: rgb(228, 46, 1);
   --spacing-one: calc(1rem * 0.5);
   --spacing-two: calc(1rem);
@@ -26,6 +27,7 @@ body {
   line-height: 1.5;
   font-size: 16px;
   color: var(--dark);
+  background-color: var(--background);
 }
 
 h1,
@@ -81,28 +83,63 @@ a:hover {
 
 header {
   background: var(--primary);
+  align-items: center;
 }
 
 header a {
   color: var(--light);
 }
 
+header img {
+  height: 150px;
+}
+
+@counter-style cheese-emoji {
+  symbols: "🧀";
+  system: cyclic;
+  suffix: " ";
+}
+
+header nav ul {
+  list-style-type: cheese-emoji;
+  font-size: x-large;
+}
+
+header nav ul li {
+  padding-right: 2rem;
+}
+
 button {
   font-size: 1rem;
   text-decoration: none;
-  padding: 0.25rem 1rem;
-  border-radius: .5rem;
+  padding: 0.5rem 1rem;
+  box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.2),
+       inset 0px -5px 0px 0px rgba(0,0,0,0.3),
+    inset 0px 2px 0px 0px rgba(255,255,255,0.5);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
   border: none;
-  outline: none;
+  overflow: hidden;
   cursor: pointer;
   margin: 0 1px;
-  background-color: var(--secondary);
+  background: url(http://1.bp.blogspot.com/-tXavBQFjNFQ/VMSaYaq7PtI/AAAAAAAADSc/awMPRe3yu5A/s1600/wood_pattern.png);
 }
 
-button:hover {
-  opacity: .8;
-}
-
+button:active {
+  box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.2),
+        inset 0px -2px 0px 0px rgba(0,0,0,0.3),
+     inset 0px 2px 0px 0px rgba(255,255,255,0.5);
+  top: 3px;
+ }
+ button div {
+  padding: 10px 20px 12px 20px;
+  color: rgba(0,0,0,0.7);
+  text-shadow: 1px 1px 0px rgba(255,255,255,0.4);
+ }
+ button:active div {
+  padding-bottom: 9px;
+ }
 button[disabled] {
   cursor: default;
   opacity: .8;
@@ -207,4 +244,8 @@ input:focus {
   .card {
     width: 100%;
   }
+  header {
+    justify-content: center;
+  }
 }
+
