@@ -1,8 +1,11 @@
 const db = require('./connection');
+<<<<<<< HEAD
+=======
 
 const {User, Product, Category } = require('../models');
 
 const db = require('./connection');
+>>>>>>> feature/newtake
 const { User, Product, Category } = require('../models');
 
 db.once('open', async () => {
@@ -44,6 +47,18 @@ db.once('open', async () => {
         image: 'vegetarian-large.jpg',
         category: categories[2]._id,
         price: 13.99,
+<<<<<<< HEAD
+    
+    },
+    {
+            name: 'Small Classic Board',
+            description: 'Classic board with meat, cheese, and various fruit.',
+            image: 'classic-small.jpg',
+            category: categories[0]._id,
+            price: 15.00,
+    
+    },
+=======
         
       },
       {
@@ -54,6 +69,7 @@ db.once('open', async () => {
             price: 15.00,
     
       },
+>>>>>>> feature/newtake
    
   ]);
 

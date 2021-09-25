@@ -10,7 +10,6 @@ function ProductItem(item) {
       name,
       _id,
       price,
-      quantity
     } = item;
   
     return (
@@ -23,7 +22,7 @@ function ProductItem(item) {
           <p>{name}</p>
         </Link>
         <div>
-          <div>{quantity} {pluralize("item", quantity)} in stock</div>
+          
           <span>${price}</span>
         </div>
         <button>Add to cart</button>
