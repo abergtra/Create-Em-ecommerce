@@ -1,10 +1,10 @@
 :root {
-  --primary: #e7d47b;
+  --primary: #f0e6cf;
   --secondary: #fffd48;
   --tertiary: #ac154e;
   --light: #615a4b;
   --dark: #2f2824;
-  --background: #f0e6cf;
+  --background: #e7d47b;
   --error: rgb(228, 46, 1);
   --spacing-one: calc(1rem * 0.5);
   --spacing-two: calc(1rem);
@@ -248,3 +248,4 @@ input:focus {
     justify-content: center;
   }
 }
+
