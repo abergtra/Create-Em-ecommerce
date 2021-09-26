@@ -9,7 +9,8 @@ db.once('open', async () => {
     { name: 'Household Supplies' },
     { name: 'Electronics' },
     { name: 'Books' },
-    { name: 'Toys' }
+    { name: 'Toys' },
+    { name: 'Classic' }
   ]);
 
   console.log('categories seeded');
@@ -122,6 +123,24 @@ db.once('open', async () => {
         'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
       image: 'alphabet-blocks.jpg',
       price: 9.99,
+      quantity: 600
+    },
+    {
+      name: 'Large Classic Board',
+      category: categories[5]._id,
+      description:
+        'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
+      image: 'classic-large1.jpg',
+      price: 39.99,
+      quantity: 600
+    },
+    {
+      name: 'Small Classic Board',
+      category: categories[5]._id,
+      description:
+        'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
+      image: 'classic-small.jpg',
+      price: 19.99,
       quantity: 600
     }
   ]);
