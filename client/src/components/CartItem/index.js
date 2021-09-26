@@ -56,10 +56,10 @@ const CartItem = ({ item }) => {
           />
           <span
             role="img"
-            aria-label="trash"
+            aria-label="fork and knife with plate"
             onClick={() => removeFromCart(item)}
           >
-            🗑️
+            🍽️
           </span>
         </div>
       </div>
